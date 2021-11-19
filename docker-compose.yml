@@ -8,4 +8,13 @@ services:
     volumes:
       - .:/usr/src/app
     ports:
-      - "5000:5000"
+      - 5000:5000
+  jupyter:
+    build: .
+    command: jupyter notebook --ip=0.0.0.0 --allow-root
+    environment:
+      - JUPYTER_TOKEN=abc123
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 8888:8888
